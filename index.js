@@ -19,6 +19,7 @@ function addBookToLibrary(book) {
 }
 
 function displayBooks() {
+    const cardContainer = document.getElementById("card-container");
     for (let i = 0; i < myLibrary.length; i++) {
         const card = document.createElement("div");
         card.setAttribute("class", "card");
@@ -26,6 +27,14 @@ function displayBooks() {
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         card.appendChild(removeButton);
-        document.body.appendChild(card);
+        cardContainer.appendChild(card);
     }
+}
+
+const openForm = () => {
+    document.getElementById("new-book-form").style.display = "block";
+}
+
+const closeForm = () => {
+    document.getElementById("new-book-form").style.display = "none";
 }
