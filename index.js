@@ -23,12 +23,24 @@ function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         const card = document.createElement("div");
         card.setAttribute("class", "card");
+        card.setAttribute("data", i);
         card.textContent = myLibrary[i].title;
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", () => {
+            removeCard(i);
+        });
         card.appendChild(removeButton);
         cardContainer.appendChild(card);
     }
+}
+
+function removeCard(i) {
+    myLibrary.splice(i, 1);
+    const cardContainer = document.getElementById("card-container");
+    const [card] = document.querySelectorAll(`[data="${i}"]`);
+    cardContainer.removeChild(card);
+    
 }
 
 const openForm = () => {
