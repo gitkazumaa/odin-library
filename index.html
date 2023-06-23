@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="card-container"></div>
-    <button class="new-book-button" onclick="openForm()">NEW BOOK</button>
+    <button type="button" class="new-book-button" onclick="openForm()">NEW BOOK</button>
     <div class="form-popup" id="new-book-form">
         <form action="index.js" class="new-book-form-container">
             <label for="author">Author</label>
@@ -19,9 +19,9 @@
             <label for="number-of-pages">Number of Pages</label>
             <input type="number" name="number-of-pages" required>
             <label for="has-read">Have you read it?</label>
-            <input type="checkbox" name="has-read">
+            <input type="checkbox" name="has-read" required>
             <button type="submit">Add Book</button>
-            <button class="close-button" onclick="closeForm()">Close</button>
+            <button type="button" class="close-button" onclick="closeForm()">Close</button>
         </form>
     </div>
 </body>
