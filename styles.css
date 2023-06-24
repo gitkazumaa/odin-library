@@ -1,0 +1,26 @@
+#card-container {
+    display: grid;
+    grid-template: 100px / repeat(5, 100px);
+    gap: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #7dd3fc;
+    border-radius: 1rem;
+    width: 100px;
+}
+
+.new-book-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+}
+
+#form-popup {
+    display: none;
+}
