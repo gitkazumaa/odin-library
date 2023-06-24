@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <title>Library</title>
 </head>
 <body>
     <div id="card-container"></div>
     <button type="button" class="new-book-button" onclick="openForm()">NEW BOOK</button>
-    <div class="form-popup" id="new-book-form">
-        <form action="index.js" class="new-book-form-container">
+    <div id="form-popup">
+        <form action="index.js" id="new-book-form" class="new-book-form-container">
             <label for="author">Author</label>
             <input type="text" name="author" required>
             <label for="title">Title</label>
@@ -19,7 +19,7 @@
             <label for="number-of-pages">Number of Pages</label>
             <input type="number" name="number-of-pages" required>
             <label for="has-read">Have you read it?</label>
-            <input type="checkbox" name="has-read" required>
+            <input type="checkbox" name="has-read">
             <button type="submit">Add Book</button>
             <button type="button" class="close-button" onclick="closeForm()">Close</button>
         </form>
