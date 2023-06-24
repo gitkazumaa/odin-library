@@ -1,10 +1,29 @@
 let myLibrary = [];
-const book1 = new Book("title", "author", 100, false);
-const book2 = new Book("title", "author", 100, false);
-const book3 = new Book("title", "author", 100, false);
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3);
+
+const newBookForm = document.getElementById("new-book-form");
+const newBookFormInputs = newBookForm.elements;
+newBookForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    submitForm();
+    displayBooks();
+});
+
+Book.prototype.changeReadStatus = function () {
+    this.isRead = !this.isRead
+}
+
+const openForm = () => {
+    document.getElementById("form-popup").style.display = "block";
+}
+
+const closeForm = () => {
+    document.getElementById("form-popup").style.display = "none";
+}
+
+function submitForm() {
+    const book = new Book(newBookFormInputs[1].value, newBookFormInputs[0].value, newBookFormInputs[2].value, newBookFormInputs[3].value);
+    addBookToLibrary(book);
+}
 
 function Book(title, author, pages, isRead) {
     this.title = title;
@@ -30,7 +49,11 @@ function displayBooks() {
         removeButton.addEventListener("click", () => {
             removeCard(i);
         });
+        const readStatusButton = document.createElement("button");
+        readStatusButton.textContent = "Read Status";
+        readStatusButton.addEventListener("click", () => card.changeReadStatus());
         card.appendChild(removeButton);
+        card.appendChild(readStatusButton);
         cardContainer.appendChild(card);
     }
 }
@@ -40,13 +63,4 @@ function removeCard(i) {
     const cardContainer = document.getElementById("card-container");
     const [card] = document.querySelectorAll(`[data="${i}"]`);
     cardContainer.removeChild(card);
-    
-}
-
-const openForm = () => {
-    document.getElementById("new-book-form").style.display = "block";
-}
-
-const closeForm = () => {
-    document.getElementById("new-book-form").style.display = "none";
 }
